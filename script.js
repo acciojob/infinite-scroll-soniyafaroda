@@ -1,25 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const list = document.getElementById("list");
-    let count = 1;
+// Select the list element
+const list = document.getElementById("list");
 
-    function addListItem() {
-        const li = document.createElement("li");
-        li.textContent = "Item " + count;
-        list.appendChild(li);
-        count++;
-    }
+// Counter to keep track of item numbers
+let count = 1;
 
-    function addInitialItems() {
-        for (let i = 0; i < 10; i++) addListItem();
-    }
+// Function to add new list items
+function addItems(num) {
+  for (let i = 0; i < num; i++) {
+    const li = document.createElement("li");
+    li.textContent = "Item " + count;
+    list.appendChild(li);
+    count++;
+  }
+}
 
-    function handleScroll() {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            addListItem();
-            addListItem();
-        }
-    }
+// Add initial 10 items
+addItems(10);
 
-    addInitialItems();
-    window.addEventListener("scroll", handleScroll);
+// Detect when user reaches bottom
+window.addEventListener("scroll", () => {
+  // Check if user is at bottom of the page
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    addItems(2); // Add 2 more items
+  }
 });
