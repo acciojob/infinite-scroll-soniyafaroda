@@ -1,14 +1,14 @@
-const list = document.getElementById("list");
+const list = document.getElementById("infi-list");
 let count = 0;
 
-// ******** Add Initial 10 Items ********
+// Add initial 10 items
 function addInitialItems() {
   for (let i = 0; i < 10; i++) {
     addItem();
   }
 }
 
-// ******** Create and Append New List Item ********
+// Add a single item
 function addItem() {
   count++;
   const li = document.createElement("li");
@@ -16,7 +16,7 @@ function addItem() {
   list.appendChild(li);
 }
 
-// ******** Detect Scroll to Bottom and Add 2 Items ********
+// Infinite scroll logic: add 2 items at bottom
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
   const windowHeight = window.innerHeight;
@@ -28,5 +28,5 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// ******** Start App ********
+// Start with 10 items
 addInitialItems();
