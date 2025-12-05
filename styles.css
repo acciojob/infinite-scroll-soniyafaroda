@@ -1,22 +1,14 @@
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-}
-
 #infi-list {
   width: 300px;
-  height: 300px;       /* REQUIRED for scroll */
-  overflow-y: scroll;   /* REQUIRED for scroll */
-  border: 2px solid #444;
-  padding: 0;
+  height: 250px;        /* MUST be fixed height */
+  overflow-y: auto;     /* MUST be scrollable */
+  border: 2px solid black;
   list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
 #infi-list li {
-  padding: 12px;
+  padding: 10px;
   border-bottom: 1px solid #ccc;
-  font-size: 18px;
 }

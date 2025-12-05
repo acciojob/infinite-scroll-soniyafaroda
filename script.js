@@ -1,8 +1,8 @@
 const list = document.getElementById("infi-list");
 let count = 1;
 
-// Add initial 10 items
-for (let i = 0; i < 10; i++) {
+// Add MANY items so list becomes scrollable immediately
+for (let i = 0; i < 30; i++) {
   addItem();
 }
 
@@ -13,8 +13,8 @@ function addItem() {
 }
 
 list.addEventListener("scroll", () => {
-  // Detect when scrolled to bottom
   if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
+    // Add 2 more items
     addItem();
     addItem();
   }
