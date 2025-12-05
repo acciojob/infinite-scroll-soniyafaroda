@@ -1,26 +1,32 @@
-// Select the list element
 const list = document.getElementById("list");
+let count = 0;
 
-// Counter to keep track of item numbers
-let count = 1;
-
-// Function to add new list items
-function addItems(num) {
-  for (let i = 0; i < num; i++) {
-    const li = document.createElement("li");
-    li.textContent = "Item " + count;
-    list.appendChild(li);
-    count++;
+// ******** Add Initial 10 Items ********
+function addInitialItems() {
+  for (let i = 0; i < 10; i++) {
+    addItem();
   }
 }
 
-// Add initial 10 items
-addItems(10);
+// ******** Create and Append New List Item ********
+function addItem() {
+  count++;
+  const li = document.createElement("li");
+  li.textContent = "Item " + count;
+  list.appendChild(li);
+}
 
-// Detect when user reaches bottom
+// ******** Detect Scroll to Bottom and Add 2 Items ********
 window.addEventListener("scroll", () => {
-  // Check if user is at bottom of the page
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    addItems(2); // Add 2 more items
+  const scrollTop = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const fullHeight = document.documentElement.scrollHeight;
+
+  if (scrollTop + windowHeight >= fullHeight - 5) {
+    addItem();
+    addItem();
   }
 });
+
+// ******** Start App ********
+addInitialItems();
